@@ -1,0 +1,29 @@
+<div class="filter">
+  <div class="form-field sport-select">
+    <mat-form-field appearance="outline">
+      <mat-label>Select the Sport Type</mat-label>
+      <mat-select [value]="sportType" (selectionChange)="onChangeSportType($event)">
+        <mat-option *ngFor="let type of sportTypeSelect" [value]="type.value">
+          {{ type.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="form-field search-box">
+    <mat-form-field appearance="outline">
+      <mat-label>Search</mat-label>
+      <input matInput [value]="searchText" (change)="onChangeSearchText($event)" />
+    </mat-form-field>
+  </div>
+</div>
+<div class="content">
+  <ng-container *ngIf="this.loading; then loader; else result"></ng-container>
+  <ng-template #loader>
+    <div class="loader-container" style="display: flex; align-items: center; justify-content: center; min-height: 48px">
+      <span>Loading</span>
+    </div>
+  </ng-template>
+  <ng-template #result>
+    <app-sport-result-table [data]="this.tableData" [columns]="this.tableColumns"></app-sport-result-table>
+  </ng-template>
+</div>

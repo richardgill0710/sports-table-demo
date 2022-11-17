@@ -1,0 +1,19 @@
+.filter {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.filter .form-field {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.filter .search-box {
+  flex: 1;
+}
+
+.filter .search-box > .mat-form-field {
+  width: 100%;
+}
